@@ -1,49 +1,24 @@
 import React, { Component } from "react";
-
+import { Users } from "./Users";
 const API = 'https://api.github.com';
 
-const UserCard = props => {
-  const { avatar_url, login, html_url } = props.item;
-
-  return (
-    <div className="col-4 d-flex justify-content-center user-card">
-      <a className="user-container" href={html_url}>
-        <img src={avatar_url} alt={login} width="120" height="120" />
-        <div>{login}</div>
-      </a>
-    </div>
-  );
-};
-
-const Users = ({list}) => {
-  let cards = <h3>Loading...</h3>;
-
-  if (list) {
-    cards = list.map((item, i) => <UserCard key={i} item={item} />);
-  }
-
-  return (
-    <div className="row user-cards">{cards}</div>
-  );
-};
-
+// User overview page
 class UserOverview extends Component {
   // create empty state
   state = {
     values: {
       q: ""
     },
-    isSubmitting: false,
+    loading: false,
     isError: false,
     result: [],
-    resultCount: 0,
-    popularUsers: []
+    resultCount: 0
   };
 
   submitForm = async e => {
     e.preventDefault();
     // User is submitting
-    this.setState({ isSubmitting: true });
+    this.setState({ loading: true });
 
     // Get API results
     const result = await fetch(`${API}/search/users?q=${this.state.values.q}`, {
@@ -54,7 +29,7 @@ class UserOverview extends Component {
     });
 
     // Submitting is done
-    this.setState({ isSubmitting: false });
+    this.setState({ loading: false });
     const data = await result.json();
 
     // Update state with results and result count
@@ -86,19 +61,23 @@ class UserOverview extends Component {
   // render search component
   render() {
     return (
-      <form onSubmit={this.submitForm}>
-        <input
-          type="text"
-          name="q"
-          id="user"
-          value={this.state.values.q}
-          onChange={this.handleInputChange}
-          placeholder="Type to search"
-          title="user"
-        />
-        <button type="submit">Search</button>
+      <>
+        <h2>Search for Github User</h2>
+        <form onSubmit={this.submitForm}>
+          <input
+            class="col-sm-2 form-control"
+            type="text"
+            name="q"
+            id="user"
+            value={this.state.values.q}
+            onChange={this.handleInputChange}
+            placeholder="Type to search"
+            title="user"
+          />
+          <button className="btn btn-primary" type="submit">Search</button>
+        </form>
         {this.renderUsers}
-      </form>
+      </>
     );
   };
 };

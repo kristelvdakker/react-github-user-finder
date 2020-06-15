@@ -12,11 +12,17 @@
       border-radius: 5px;
       padding: 25px;
       width: 100%;
-
-      img {
-        border-radius: 100px;
-        margin-bottom: 20px;
-      }
     }
+  }
+}
+
+.user-avatar {
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.user-detail {
+  .btn {
+    margin-right: 10px;
   }
 }
