@@ -1,3 +1,37 @@
+# Description
+
+This project was created to test my React skills and to see what I still need to learn.
+It is a simple application in which you can call on the Github API to search for a user.
+
+## Component overview
+
+App.js
+
+- Contains the routing
+
+UserOverview.js
+
+- Contains the search and found users after the search
+
+Users.js
+
+- Contains the user overview list
+
+User.js
+
+- Contains the user summary
+
+UserDetail.js
+
+- Contains the user detail page
+
+## TODO
+
+- Make a user login to be able to show the contact details of the found user.
+- Add a not-found page
+
+## React
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
