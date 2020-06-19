@@ -1,14 +1,10 @@
 import React from "react";
 import { User } from "./User";
 
-export const Users = ({list}) => {
-  let cards = <h3>Loading...</h3>;
+export const Users = ({items}) => {
+  // loop through items and render them into single users
+  const cards = items.map((item, i) => <User key={i} item={item} />);
 
-  if (list) {
-    cards = list.map((item, i) => <User key={i} item={item} />);
-  }
-
-  return (
-    <div className="row user-cards">{cards}</div>
-  );
+  // return user cards within a container
+  return <div className="row user-cards">{cards}</div>;
 };

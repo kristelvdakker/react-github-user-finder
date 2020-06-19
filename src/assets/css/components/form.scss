@@ -1,8 +1,9 @@
-form {
+.form-search {
   display: flex;
-  margin-bottom: 50px;
+  justify-content: center;
+  margin-bottom: $base-section-margin;
 
   input {
-    margin-right: 10px;
+    margin-right: $base-spacing;
   }
 }

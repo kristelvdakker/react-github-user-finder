@@ -11,7 +11,7 @@ export default function App() {
   return (
     <>
       <Router>
-        <header className="">
+        <header className="header">
           <div className="container">
             <Link to="/" className="header-logo">
               <img src={logo} width="60" alt="logo" />

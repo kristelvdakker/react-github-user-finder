@@ -29,6 +29,7 @@ UserDetail.js
 
 - Make a user login to be able to show the contact details of the found user.
 - Add a not-found page
+- Load more button in user overview
 
 ## React
 
