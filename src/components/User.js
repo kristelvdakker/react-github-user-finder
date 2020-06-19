@@ -10,17 +10,15 @@ export const User = props => {
   // return single user card
   return (
     <div className="col-4 d-flex justify-content-center user-card">
-      <div className="user-container">
-        <Link to={`/user/${login}`}>
-          <img
-            className="user-avatar"
-            src={avatar_url}
-            alt={login}
-            width="120"
-            height="120" />
-          <div className="user-name">{login}</div>
-        </Link>
-      </div>
+      <Link className="user-container" to={`/user/${login}`}>
+        <img
+          className="user-avatar"
+          src={avatar_url}
+          alt={login}
+          width="120"
+          height="120" />
+        <div className="user-name">{login}</div>
+      </Link>
     </div>
   );
 };
